@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Multimedia Steganography</title>
+    <style>
+        @font-face {
+            font-family: 'Product Sans';
+            src: url('ProductSans.ttf') format('truetype');
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Product Sans', Arial, sans-serif;
+        }
+
+        body {
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            background: url('background.jpg');
+            background-position: center;
+            background-size: cover;
+            color: white;
+            overflow: hidden;
+        }
+
+        .header {
+            background-color: rgba(0, 0, 0, 0.9);
+            color: #b7cece;
+            padding: 15px;
+            text-align: center;
+            font-size: 24px;
+            font-weight: bold;
+            letter-spacing: 1px;
+            box-shadow: 0px 2px 5px rgba(0,0,0,0.5);
+        }
+
+        .sidebar {
+            position: fixed;
+            top: 0;
+            left: -200px;
+            width: 200px;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.9);
+            color: whitesmoke;
+            transition: left 0.4s ease-in-out;
+            padding-top: 60px;
+            z-index: 100;
+        }
+
+        .sidebar.active {
+            left: 0;
+        }
+
+        .sidebar h2 {
+            color: #6e7e85;
+            font-size: 22px;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .sidebar a {
+            display: block;
+            padding: 15px;
+            font-size: 18px;
+            color: #b7cece;
+            text-decoration: none;
+            transition: background 0.3s;
+        }
+
+        .sidebar a:hover {
+            background-color: #575757;
+        }
+
+        .content {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+        }
+
+        .content h1 {
+            color: #e2e2e2;
+            font-size: 40px;
+            margin-bottom: 20px;
+        }
+
+        .button-group {
+            display: flex;
+            gap: 20px;
+        }
+
+        .btn {
+            padding: 15px 35px;
+            font-size: 18px;
+            font-weight: bold;
+            color: white;
+            border: none;
+            border-radius: 25px;
+            cursor: pointer;
+            transition: background 0.3s, transform 0.2s;
+        }
+
+        .encrypt-btn {
+            background-color: rgb(75, 75, 75);
+            color: bisque;
+        }
+
+        .encrypt-btn:hover {
+            background-color: gray;
+            transform: translateY(-3px);
+        }
+
+        .decrypt-btn {
+            background-color: rgb(75, 75, 75);
+            color: bisque;
+        }
+
+        .decrypt-btn:hover {
+            background-color: gray;
+            transform: translateY(-3px);
+        }
+
+        .hover-area {
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 100%;
+            width: 20px;
+            background-color: transparent;
+            z-index: 50;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="header">
+        Graphy, A Multimedia Steganography Tool
+    </div>
+
+    <div class="sidebar" id="sidebar" onmouseover="openSidebar()" onmouseout="closeSidebar()">
+        <h2>G R A P H Y</h2>
+        <a href="welcome.html">Home</a>
+        <a href="javascript:history.back()">Back</a>
+    </div>
+
+    <div class="hover-area" onmouseover="openSidebar()"></div>
+
+    <div class="content">
+        <h1>Choose an Option</h1>
+        <div class="button-group">
+            <button class="btn encrypt-btn" onclick="encryptPage()">Encrypt</button>
+            <button class="btn decrypt-btn" onclick="decryptPage()">Decrypt</button>
+        </div>
+    </div>
+
+    <script>
+        function openSidebar() {
+            document.getElementById("sidebar").style.left = "0";
+        }
+
+        function closeSidebar() {
+            document.getElementById("sidebar").style.left = "-220px";
+        }
+
+        function encryptPage() {
+            window.location.href = 'encrypt.html';
+        }
+
+        function decryptPage() {
+            window.location.href = 'decrypt.html';
+        }
+    </script>
+
+</body>
+</html>
