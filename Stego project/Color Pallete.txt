@@ -1,5 +1,0 @@
-Licorice = 1C0F13 (28,15,19)
-Slate grey = 6E7E85 (110,126,133)
-Ash grey = B7CECE (183,206,206)
-French grey = BBBAC6 (187,186,198)
-Platinum = E2E2E2 (226,226,226)
